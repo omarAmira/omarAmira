@@ -15,5 +15,5 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 ## 🌐 Socials:
-## https://www.facebook.com/amar.amira1
-## https://www.linkedin.com/in/omar-amira/
+![image](https://github.com/user-attachments/assets/554aeaea-3c53-4659-935c-8b4189035e94)
+
