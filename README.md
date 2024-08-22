@@ -14,3 +14,6 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+🌐 Socials:
+https://www.facebook.com/amar.amira1
+https://www.linkedin.com/in/omar-amira/
