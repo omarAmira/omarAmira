@@ -3,6 +3,8 @@
 ###
 
 <div align="center">
+  <img src="https://skillicons.dev/icons?i=angular" height="60" alt="angular logo" />
+  
   <img src="https://skillicons.dev/icons?i=ts" height="60" alt="typescript logo"  />
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=nextjs" height="60" alt="nextjs logo"  />
