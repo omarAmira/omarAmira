@@ -47,6 +47,16 @@
 </div>
 
 ###
+<div align="center">
+  <!-- Stats globales -->
+  <img src="https://github-readme-stats.vercel.app/api?username=omarAmira&show_icons=true&theme=dracula" height="180" alt="GitHub stats" />
+  
+  <!-- Langages les plus utilisés -->
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=omarAmira&layout=compact&theme=dracula" height="180" alt="Top languages" />
+</div>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=omarAmira&theme=dracula" alt="productive time graph" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=omarAmira&theme=dracula" alt="repos per language" />
+
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/omarAmira/omarAmira/output/pacman-contribution-graph-dark.svg">
