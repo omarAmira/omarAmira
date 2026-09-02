@@ -15,9 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Generate Snake animation graph
+      # Generate Snake animation graph with pinned release
       - name: Generate snake animation
-        uses: Platane/snk@master
+        uses: Platane/snk@v3.1
         with:
           github_user_name: omarAmira
           outputs: |
@@ -26,32 +26,22 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Generate Pac-Man contribution graph
-      - name: Generate Pac-Man graph
-        uses: maxam2017/productive-box@master
+      # Generate GitHub stats (alternative to unmaintained productive-box)
+      - name: Generate GitHub Stats
+        uses: jstrieb/github-stats@master
         with:
-          commit_message: Update productive time
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user: omarAmira
+          repository: omarAmira
 
-      # Push generated files to output branch
-      - name: Push to output branch
+      # Push generated files
+      - name: Push generated files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # Copy generated SVGs to output directory
           mkdir -p output
           cp -r dist/*.svg output/ 2>/dev/null || true
           
           git add output/
           git commit -m "⚡ Update contribution graphs" || echo "No changes to commit"
           git push
-
-      # Keep main branch updated with generated content
-      - name: Commit changes to main
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          
-          git add .
-          git diff --quiet && git diff --staged --quiet || (git commit -m "📊 Update README stats" && git push)
