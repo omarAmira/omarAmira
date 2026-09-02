@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Generate GitHub Stats
+        uses: anuraghazra/github-readme-stats@master
+        with:
+          username: omarAmira
       - uses: Platane/snk@master
         with:
           github_user_name: omarAmira
@@ -19,5 +23,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Update README stats" || echo "No changes to commit"
-          git push || echo "Nothing to push"
+          git commit -m "Update README stats"
+          git push
