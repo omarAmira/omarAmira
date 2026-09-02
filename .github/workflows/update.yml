@@ -15,33 +15,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Generate Snake animation graph with pinned release
+      # Generate Snake animation graph with pinned stable release
       - name: Generate snake animation
-        uses: Platane/snk@v3.1
+        uses: Platane/snk/svg-only@v3
         with:
-          github_user_name: omarAmira
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/snake.svg
-            dist/snake-dark.svg
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Generate GitHub stats (alternative to unmaintained productive-box)
-      - name: Generate GitHub Stats
-        uses: jstrieb/github-stats@master
+      # Push generated files to output branch
+      - name: Push to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          user: omarAmira
-          repository: omarAmira
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Push generated files
-      - name: Push generated files
+      # Keep main branch updated with generated content
+      - name: Commit changes to main
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          mkdir -p output
-          cp -r dist/*.svg output/ 2>/dev/null || true
-          
-          git add output/
-          git commit -m "⚡ Update contribution graphs" || echo "No changes to commit"
-          git push
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "📊 Update snake animation" && git push)
